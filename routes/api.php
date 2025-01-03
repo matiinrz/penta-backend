@@ -18,7 +18,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/user', 'user')->middleware('auth:sanctum');
 });
 Route::get('/documentation', function () {
-    return view('vendor.l5-swagger.index');
+    $documentation = 'default';  // or any specific documentation name you have defined
+    return view('vendor.l5-swagger.index', compact('documentation'));
 });
 
 Route::middleware('auth:sanctum')->group(function () {
