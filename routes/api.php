@@ -18,8 +18,9 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/user', 'user')->middleware('auth:sanctum');
 });
 Route::get('/documentation', function () {
-    return view('swagger.index');
+    return view('vendor.l5-swagger.index');
 });
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/users', 'index');
